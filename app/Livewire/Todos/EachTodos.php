@@ -4,10 +4,13 @@ namespace App\Livewire\Todos;
 
 use Livewire\Component;
 
-class Each extends Component
+class EachTodos extends Component
 {
+
+    public $todo;
+
     public function render()
     {
-        return view('livewire.todos.each');
+        return view('livewire.todos.each-todos');
     }
 }
