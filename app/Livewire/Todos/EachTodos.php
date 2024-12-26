@@ -3,6 +3,7 @@
 namespace App\Livewire\Todos;
 
 use Livewire\Component;
+use App\Models\Todo;
 
 class EachTodos extends Component
 {
