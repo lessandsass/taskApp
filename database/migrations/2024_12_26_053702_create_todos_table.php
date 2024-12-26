@@ -10,6 +10,8 @@ return new class extends Migration
     {
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->integer('completed')->default(0);
             $table->timestamps();
         });
     }
