@@ -10,6 +10,10 @@ class Listtodos extends Component
 
     public $todos, $title, $status;
 
+    protected $listeners = [
+        'notify',
+    ];
+
     public function add()
     {
         $this->validate([
