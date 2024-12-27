@@ -10,6 +10,8 @@ class EachTodos extends Component
 
     public Todo $todo;
     public $completed;
+    public $title;
+    // public $modelOpened = false;
 
     public function changeCompleted($id)
     {
@@ -17,6 +19,11 @@ class EachTodos extends Component
         $todo->completed = !$todo->completed;
         $todo->save();
         $this->dispatch('notify', "The todo has been completed!");
+    }
+
+    public function mount($todo)
+    {
+        $this->title = $todo->title;
     }
 
     public function render()
