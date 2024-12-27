@@ -13,6 +13,7 @@ class TodoFactory extends Factory
     {
         return [
             'title' => $this->faker->words(4, 6),
+            'description' => $this->faker->text(100),
             'completed' => $this->faker->boolean(0, 1),
         ];
     }

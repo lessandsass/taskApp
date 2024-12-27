@@ -9,7 +9,7 @@ use Livewire\Component;
 class Listtodos extends Component
 {
 
-    public $todos, $title, $status;
+    public $todos, $title, $description, $status;
 
     protected $listeners = [
         'notify',
@@ -18,14 +18,17 @@ class Listtodos extends Component
     public function add()
     {
         $this->validate([
-        'title' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'description' => 'required|string|max:500',
         ]);
 
         auth()->guard()->user()->todos()->create([
             'title' => $this->title,
+            'description' => $this->description
         ]);
 
         $this->title = '';
+        $this->description = '';
 
         session()->flash('message', 'The todo has been added!');
 

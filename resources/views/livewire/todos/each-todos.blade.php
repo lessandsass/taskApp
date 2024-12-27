@@ -14,6 +14,12 @@
     >
         {{ $todo->title }}
     </div>
+
+    <div
+        class="w-full text-gray-700 select-none"
+    >
+        {{ $todo->description }}
+    </div>
     {{-- Modal --}}
     <div x-data="{ open: @entangle('modelOpened') }">
         <!-- Trigger Button -->
@@ -40,6 +46,16 @@
                             class="form-input rounded-md shadow-sm mt-1 block w-full"
                         />
                         @error('title') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block font-medium text-sm text-gray-700">Description</label>
+                        <input
+                            type="text"
+                            wire:model="description"
+                            class="form-input rounded-md shadow-sm mt-1 block w-full"
+                        />
+                        @error('description') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                     </div>
                 </form>
 

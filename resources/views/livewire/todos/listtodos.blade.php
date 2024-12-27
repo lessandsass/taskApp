@@ -47,7 +47,7 @@
 
                             <div class="mb-4">
 
-                                <h1 class="tex-gray-600">Todo List</h1>
+                                <h1 class="tex-gray-600">Task List</h1>
 
                                 <div class="flex mt-4 justify-between">
 
@@ -58,6 +58,19 @@
                                             placeholder="Add Todo"
                                         >
                                         @error('title')
+                                            <div class="text-red-500 text-xs mt-1">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="flex-1 mr-4">
+                                        <input
+                                            wire:model.live="description"
+                                            class="shadow appearance-none rounded w-full py-2 px-3 mr-4 text-grey-darker border-2 border-grey-100 @error('title') border-red-500 @enderror placeholder-gray-400 leading-tight focus:outline-none focus:shadow-outline"
+                                            placeholder="Add Description"
+                                        >
+                                        @error('description')
                                             <div class="text-red-500 text-xs mt-1">
                                                 {{ $message }}
                                             </div>

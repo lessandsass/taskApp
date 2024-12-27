@@ -17,7 +17,7 @@
                     </x-nav-link>
 
                     <x-nav-link href="{{ route('todos') }}" :active="request()->routeIs('todos')">
-                        {{ __('Todos') }}
+                        {{ __('Tasks') }}
                     </x-nav-link>
                 </div>
             </div>
