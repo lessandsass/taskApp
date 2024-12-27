@@ -28,22 +28,15 @@ class EachTodos extends Component
 
     public function update()
     {
-
-
         $this->validate([
             'title' => 'required|string|max:255',
-         ]);
-
-
-
+        ]);
 
         $this->todo->title = $this->title;
         $this->todo->save();
-        // $this->dispatch('notify', "The todo has been updated!");
-        session()->flash('message', 'The todo has been added!');
+        $this->dispatch('notify', "The todo has been updated!");
+        // session()->flash('message', 'The todo has been added!');
         $this->title = '';
-
-
     }
 
     public function delete($id)

@@ -10,7 +10,7 @@
     </td>
 
     <div
-        class="w-full text-green-500 select-none"
+        class="w-full text-gray-700 select-none"
     >
         {{ $todo->title }}
     </div>
@@ -25,7 +25,7 @@
         <!-- Trigger Button -->
         <button
             @click="open = true"
-            class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
         >
             Edit
         </button>
@@ -36,16 +36,18 @@
                 <!-- Modal Header -->
                 <div class="text-lg font-semibold mb-4">Edit Task</div>
 
-                <!-- Modal Content -->
-                <div class="mb-4">
-                    <label class="block font-medium text-sm text-gray-700">Title</label>
-                    <input
-                        type="text"
-                        wire:model="title"
-                        class="form-input rounded-md shadow-sm mt-1 block w-full"
-                    />
-                    @error('title') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
-                </div>
+                <form>
+                    <!-- Modal Content -->
+                    <div class="mb-4">
+                        <label class="block font-medium text-sm text-gray-700">Title</label>
+                        <input
+                            type="text"
+                            wire:model.sync="title"
+                            class="form-input rounded-md shadow-sm mt-1 block w-full"
+                        />
+                        @error('title') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+                    </div>
+                </form>
 
                 <!-- Modal Footer -->
                 <div class="flex justify-end">
@@ -62,7 +64,13 @@
                 </div>
             </div>
         </div>
+
+
+
     </div>
+
+
+</div
 
 
 

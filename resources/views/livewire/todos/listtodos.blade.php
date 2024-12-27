@@ -4,13 +4,6 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Todos') }}
             </h2>
-
-            <button
-                type="submit"
-                class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-            >
-                Add Task
-            </button>
         </div>
     </x-slot>
 
@@ -54,14 +47,14 @@
 
                             <div class="mb-4">
 
-                                <h1 class="text-grey-darkest">Todo List</h1>
+                                <h1 class="tex-gray-600">Todo List</h1>
 
                                 <div class="flex mt-4 justify-between">
 
                                     <div class="flex-1 mr-4">
                                         <input
                                             wire:model.live="title"
-                                            class="shadow appearance-none rounded w-full py-2 px-3 mr-4 text-grey-darker border-2 @error('title') border-red-500 @enderror placeholder-gray-400 leading-tight focus:outline-none focus:shadow-outline"
+                                            class="shadow appearance-none rounded w-full py-2 px-3 mr-4 text-grey-darker border-2 border-grey-100 @error('title') border-red-500 @enderror placeholder-gray-400 leading-tight focus:outline-none focus:shadow-outline"
                                             placeholder="Add Todo"
                                         >
                                         @error('title')
@@ -78,7 +71,7 @@
                                         wire:loading.class="opacity-50 cursor-wait"
                                         @submit.prevent="add"
                                         @click="show = 'true'"
-                                        class="flex p-2 border-2 rounded text-teal border-gray-600 hover:text-gray-700 hover:bg-teal"
+                                        class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
                                     >
                                         Add
                                     </button>
