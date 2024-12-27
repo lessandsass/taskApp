@@ -16,6 +16,8 @@ composer install
 cp .env.example .env
 ````
 
+- Replace the field with the parameters
+
 ````
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
