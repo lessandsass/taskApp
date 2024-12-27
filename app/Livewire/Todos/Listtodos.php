@@ -22,7 +22,7 @@ class Listtodos extends Component
 
         $this->title = '';
 
-        session()->flash('message', 'Your action was successful!');
+        session()->flash('message', 'The todo has been added!');
 
     }
 

@@ -14,7 +14,7 @@
         </div>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-12 relative">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden sm:rounded-lg">
 
@@ -38,8 +38,8 @@
                                     x-transition:leave="transition ease-in duration-500"
                                     x-transition:leave-start="opacity-100 transform scale-100"
                                     x-transition:leave-end="opacity-0 transform scale-90"
-                                    x-init="setTimeout(() => show = false, 2000)"
-                                    class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md relative"
+                                    x-init="setTimeout(() => show = false, 3000)"
+                                    class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md absolute top-0 right-0 mt-4 mr-4"
                                     style="display: none;"
                                 >
                                     <div class="flex">

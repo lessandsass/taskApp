@@ -1,4 +1,4 @@
-<div class="flex mb-4 items-center bg-gray-100 p-2 rounded-lg shadow-lg">
+<div class="flex mb-4 items-center bg-gray-100 p-2 rounded-lg shadow-gray-200 shadow-lg">
 
     <td class="p-2">
         <input type="checkbox" class="h-4 w-4 rounded border-2 mr-2" value="id-1" @click="toggleCheckbox($el, 2890.66)" />
