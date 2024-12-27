@@ -61,7 +61,7 @@
                                     <div class="flex-1 mr-4">
                                         <input
                                             wire:model.live="title"
-                                            class="shadow appearance-none rounded w-full py-2 px-3 mr-4 text-grey-darker border-2 @error('title') border-red-500 @enderror"
+                                            class="shadow appearance-none rounded w-full py-2 px-3 mr-4 text-grey-darker border-2 @error('title') border-red-500 @enderror placeholder-gray-400 leading-tight focus:outline-none focus:shadow-outline"
                                             placeholder="Add Todo"
                                         >
                                         @error('title')
