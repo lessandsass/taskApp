@@ -15,15 +15,56 @@
         {{ $todo->title }}
     </div>
 
-    <button
-            type="submit"
+    <button type="button" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+        Remove
+    </button>
+
+
+    {{-- Modal --}}
+    <div x-data="{ open: @entangle('modelOpened') }">
+        <!-- Trigger Button -->
+        <button
+            @click="open = true"
             class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
         >
             Edit
         </button>
 
-    <button type="button" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-        Remove
-    </button>
+        <!-- Modal -->
+        <div x-show="open" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
+                <!-- Modal Header -->
+                <div class="text-lg font-semibold mb-4">Edit Task</div>
+
+                <!-- Modal Content -->
+                <div class="mb-4">
+                    <label class="block font-medium text-sm text-gray-700">Title</label>
+                    <input
+                        type="text"
+                        wire:model="title"
+                        class="form-input rounded-md shadow-sm mt-1 block w-full"
+                    />
+                    @error('title') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="flex justify-end">
+                    <button @click="open = false" class="bg-gray-500 text-white px-4 py-2 rounded mr-2">
+                        Cancel
+                    </button>
+                    <button wire:click="update" class="bg-blue-500 text-white px-4 py-2 rounded">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
 
 </div>
