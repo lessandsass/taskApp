@@ -6,11 +6,11 @@
             </h2>
 
             <button
-            type="submit"
-            class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-        >
-            Add Task
-        </button>
+                type="submit"
+                class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            >
+                Add Task
+            </button>
         </div>
     </x-slot>
 
@@ -23,21 +23,74 @@
                 <div class="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
                     <div class="bg-white rounded shadow p-6 m-4 lg:w-9/12">
 
-                        <div class="mb-4">
+                        <form
+                            wire:submit.prevent="add"
+                        >
 
-                            <h1 class="text-grey-darkest">Todo List</h1>
-
-                            <div class="flex mt-4">
-                                <input
-                                    class="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker"
-                                    placeholder="Add Todo"
+                            @if (session()->has('message'))
+                                <div
+                                    wire:ignore
+                                    x-data="{ show: true }"
+                                    x-show="show"
+                                    x-transition:enter="transition ease-out duration-500"
+                                    x-transition:enter-start="opacity-0 transform scale-90"
+                                    x-transition:enter-end="opacity-100 transform scale-100"
+                                    x-transition:leave="transition ease-in duration-500"
+                                    x-transition:leave-start="opacity-100 transform scale-100"
+                                    x-transition:leave-end="opacity-0 transform scale-90"
+                                    x-init="setTimeout(() => show = false, 2000)"
+                                    class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md relative"
+                                    style="display: none;"
                                 >
-                                <button class="flex-no-shrink p-2 border-2 rounded text-teal border-teal hover:text-gray-700 hover:bg-teal">Add</button>
+                                    <div class="flex">
+                                        <div>
+                                            <p class="text-sm">
+                                                {{ session('message') }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+
+                            <div class="mb-4">
+
+                                <h1 class="text-grey-darkest">Todo List</h1>
+
+                                <div class="flex mt-4 justify-between">
+
+                                    <div class="flex-1 mr-4">
+                                        <input
+                                            wire:model.live="title"
+                                            class="shadow appearance-none rounded w-full py-2 px-3 mr-4 text-grey-darker border-2 @error('title') border-red-500 @enderror"
+                                            placeholder="Add Todo"
+                                        >
+                                        @error('title')
+                                            <div class="text-red-500 text-xs mt-1">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <button
+                                        type="submit"
+                                        wire:loading.attr="disabled"
+                                        wire:target="add"
+                                        wire:loading.class="opacity-50 cursor-wait"
+                                        @submit.prevent="add"
+                                        @click="show = 'true'"
+                                        class="flex p-2 border-2 rounded text-teal border-gray-600 hover:text-gray-700 hover:bg-teal"
+                                    >
+                                        Add
+                                    </button>
+                                </div>
+
                             </div>
 
-                        </div>
+                        </form>
 
                         <div>
+
+
 
 
 
