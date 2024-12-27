@@ -26,11 +26,15 @@ class Listtodos extends Component
 
     }
 
+    public function notify($message)
+    {
+        session()->flash('message', $message);
+    }
+
     public function render()
     {
-
         // $this->todos = Todo::all();
-        $this->todos = Todo::oldest('status')->latest()->get();
+        $this->todos = Todo::oldest('completed')->latest()->get();
 
         return view('livewire.todos.listtodos')->layout('layouts.app');
     }

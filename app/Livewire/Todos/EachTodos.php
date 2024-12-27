@@ -16,6 +16,7 @@ class EachTodos extends Component
         $todo = Todo::find($id);
         $todo->completed = !$todo->completed;
         $todo->save();
+        $this->emitUp('notify', "The todo has been completed!");
     }
 
     public function render()
