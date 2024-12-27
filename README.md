@@ -16,6 +16,10 @@ composer install
 cp .env.example .env
 ````
 
+````
+php artisan key:generate
+````
+
 - Replace the fields with the parameters
 
 ````
@@ -25,10 +29,6 @@ DB_PORT=3306
 DB_DATABASE=taskapp
 DB_USERNAME=root
 DB_PASSWORD=
-````
-
-````
-php artisan key:generate
 ````
 
 ````
@@ -44,7 +44,7 @@ php artisan migrate --seed
 ````
 
 ````
-npm install && npm run prod
+npm install && npm run dev
 ````
 
 ````
