@@ -17,10 +17,10 @@ class Listtodos extends Component
     public function add()
     {
         $this->validate([
-           'title' => 'required|string|max:255',
+        'title' => 'required|string|max:255',
         ]);
 
-        Todo::create([
+        auth()->guard()->user()->todos()->create([
             'title' => $this->title,
         ]);
 
