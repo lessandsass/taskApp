@@ -14,12 +14,6 @@
     >
         {{ $todo->title }}
     </div>
-
-    <button type="button" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
-        Remove
-    </button>
-
-
     {{-- Modal --}}
     <div x-data="{ open: @entangle('modelOpened') }">
         <!-- Trigger Button -->
@@ -42,7 +36,7 @@
                         <label class="block font-medium text-sm text-gray-700">Title</label>
                         <input
                             type="text"
-                            wire:model.sync="title"
+                            wire:model="title"
                             class="form-input rounded-md shadow-sm mt-1 block w-full"
                         />
                         @error('title') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
@@ -69,13 +63,16 @@
 
     </div>
 
+    <button
+        wire:click="delete({{ $todo->id }})"
+        type="button"
+        class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+    >
+        Remove
+    </button>
+
 
 </div
-
-
-
-
-
 
 
 
