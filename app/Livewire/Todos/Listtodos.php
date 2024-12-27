@@ -3,6 +3,7 @@
 namespace App\Livewire\Todos;
 
 use App\Models\Todo;
+use App\Models\User;
 use Livewire\Component;
 
 class Listtodos extends Component
@@ -37,10 +38,7 @@ class Listtodos extends Component
 
     public function render()
     {
-        // $this->todos = Todo::all();
-        // $this->todos = Todo::oldest('completed')->latest()->get();
-        // $this->todos = auth()->user()->oldest('completed')->latest()->get();
-        $this->todos = Todo::with('user')->oldest('completed')->latest()->get();
+        $this->todos = auth()->user()->todos()->oldest('completed')->latest()->get();
         return view('livewire.todos.listtodos')->layout('layouts.app');
     }
 }
