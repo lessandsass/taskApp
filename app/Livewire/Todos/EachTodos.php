@@ -8,7 +8,15 @@ use App\Models\Todo;
 class EachTodos extends Component
 {
 
-    public $todo;
+    public Todo $todo;
+    public $completed;
+
+    public function changeCompleted($id)
+    {
+        $todo = Todo::find($id);
+        $todo->completed = !$todo->completed;
+        $todo->save();
+    }
 
     public function render()
     {
