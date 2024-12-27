@@ -8,7 +8,23 @@ use Livewire\Component;
 class Listtodos extends Component
 {
 
-    public $todos;
+    public $todos, $title, $status;
+
+    public function add()
+    {
+        $this->validate([
+           'title' => 'required|string|max:255',
+        ]);
+
+        Todo::create([
+            'title' => $this->title,
+        ]);
+
+        $this->title = '';
+
+        session()->flash('message', 'Your action was successful!');
+
+    }
 
     public function render()
     {
