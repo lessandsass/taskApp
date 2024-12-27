@@ -26,6 +26,33 @@ class EachTodos extends Component
         $this->title = $todo->title;
     }
 
+    public function update()
+    {
+
+
+        $this->validate([
+            'title' => 'required|string|max:255',
+         ]);
+
+
+
+
+        $this->todo->title = $this->title;
+        $this->todo->save();
+        // $this->dispatch('notify', "The todo has been updated!");
+        session()->flash('message', 'The todo has been added!');
+        $this->title = '';
+
+
+    }
+
+    public function delete($id)
+    {
+        $todo = Todo::find($id);
+        $todo->delete();
+        $this->dispatch('notify', "The todo has been deleted!");
+    }
+
     public function render()
     {
         return view('livewire.todos.each-todos');
